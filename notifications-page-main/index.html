@@ -5,12 +5,299 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="https://github.com/chrisBokotaII/frontmentor-notification/blob/main/notifications-page-main/style.css">
+  
   
   <title>Frontend Mentor | Notifications page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+:root{
+    /* colors */
+  --red:hsl(1, 90%, 64%);
+ --Blue: hsl(219, 85%, 26%);
+ --White: hsl(0, 0%, 100%);
+ --Very-light-grayish-blue: hsl(210, 60%, 98%);
+ --Light-grayish-blue-1: hsl(211, 68%, 94%);
+ --Light-grayish-blue-2: hsl(205, 33%, 90%);
+ --Grayish-blue: hsl(219, 14%, 63%);
+ --Dark-grayish-blue: hsl(219, 12%, 42%);
+ --Very-dark-blue: hsl(224, 21%, 14%);
+ --black:hsl(0, 0%, 0%);
+ /* fonts */
+ --Font-size : 16px;
+--Weights-1: 500;
+--weights-2:800;
+
+}
+body{
+    background-image: linear-gradient(rgba(53, 30, 83, 0.767),rgba(0, 0, 0, 0.466)),
+    url(./assets/images/bg7.jpg) ;
+    background-position: center;
+    background-size: cover;
+    min-height: 95vh;
+    color: var(--White);
+    font-family: 'Roboto', sans-serif;
+
+}
+.time{
+    margin: auto;
+    text-align: center;
+    margin: 20px;
+    font-size: 2rem;
+}
+.container{
+    background-image: linear-gradient(rgba(53, 30, 83, 0.89),rgba(0, 0, 0, 0.664)),
+    url(./assets/images/bg3.jpg) ;
+    
+    background-position: center;
+    background-size: cover;
+    width: 42%;
+    padding: 2px;
+    margin: auto;
+    color: var(--white);
+    border-radius: 10px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.notification h1{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#count{
+    background-color: blue;
+    padding: 0px 10px 0px 10px;
+    border-radius: 5px;
+    
+}
+.allread a{
+font-size: .8rem;
+font-weight: bold;
+margin: 5px;
+color: blue;
+cursor: pointer;
+}
+.list{
+    margin: 1rem;
+
+}
+.list li{
+    list-style: none;
+    text-align: justify;
+    text-justify: inter-word;
+    
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+
+  
+}
+.list li.active{
+    color: var(--black);
+    background: var(--Light-grayish-blue-2);
+}
+.list li.active a{
+    color: var(--black);
+}
+.list li.active p::after{
+    content: ".";
+    color: var(--red);
+    font-size: 3.5rem;
+    margin: -43px 2px 10px 5px;
+    float: right;
+}
+.list li img{
+    width: 7%;
+    margin: 5px;
+  
+}
+.list li p{
+font-size: 12px;
+display: inline;
+position: absolute;
+margin: 8px 10px 0px 10px;
+font-weight: var(--Weights-1);
+
+
+}
+.list li p a{
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--white);
+}
+.list li p a:hover{
+color: blue;
+}
+.list li p img{
+    width: 8%;
+    transform: translateX(100%);
+    float: right;
+    margin-left: 15px;
+}
+ p.sub-text{
+    margin: 7px 60px 15px 60px;
+    padding: 15px;
+    font-size: 12px;
+    border-radius: 10px;
+    width: 85%;
+    
+}
+p.sub-text:hover{
+    color: var(--black);
+    background-color: var(--Light-grayish-blue-1);
+}
+.list li span{
+    display: block;
+    margin-left: 50px;
+    font-size: 13px;
+    margin-top: -15px;
+}
+span#N-space{
+    padding-top: 1rem;
+}
+
+@media(max-width:375px ){
+    .container{
+width: 100%;
+
+    }
+    .time{
+        display: none;
+        /* margin: auto;
+        text-align: center;
+        margin: 10px;
+        font-size: 1rem;
+    */}
+    .allread a{
+        font-size: .8rem;
+        font-weight: bold;
+        margin: 2px;
+        color: blue;
+        cursor: pointer;
+        }
+    #count{
+        background-color: blue;
+        padding: 0px 10px 0px 10px;
+        border-radius: 5px;
+        
+    }
+    .notification h1{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .list{
+        margin: .7rem;
+    
+    }
+    .list li{
+        list-style: none;
+        margin: 5px;
+        padding: 15px;
+        border-radius: 15px;
+        width: 100%;
+    
+      
+    }
+    .list li p{
+        font-size: 15px;
+        display: inline;
+        position: absolute;
+        margin: 4px 10px 5px 9px;
+        font-weight: var(--Weights-1);
+}
+.list li img{
+    width: 10%;
+    margin-left: 5px;
+}
+.list li span{
+    display: block;
+    margin-left: 50px;
+    font-size: 12px;
+    margin-top: -5px;
+}
+.list li:first-child span {
+    margin-top: 5px;
+}
+span#thompson{
+    margin-top: 5px;
+}
+.list li p img{
+    width: 10%;
+    margin: 30px;
+}
+}
+@media(max-width:414px){
+    .container{
+        width: 100%;
+        height: 95vh;
+    }
+    .time{
+        display: none;
+    }
+    .list{
+        width: 100%;
+    }
+    .list li{
+        padding: 30px;
+    }
+    .list li p{
+        font-size: 20px;
+        display: inline;
+        position: absolute;
+        margin: 1px 5px 5px 5px;
+        font-weight: var(--Weights-1);
+}
+.list li p a{
+    font-size: 1rem;
+}
+.list li span{
+    display: block;
+    margin-left: 50px;
+    font-size: 15px;
+    margin-top: -20px;
+    padding: 10px;
+}
+.list li:first-child span {
+    margin-top: 20px;
+}
+span#thompson{
+    margin-top: 20px;
+}
+.list li p img{
+    width: 10%;
+    margin: 30px;
+}
+#count{
+    background-color: blue;
+    padding: 0px 10px 0px 10px;
+    border-radius: 5px;
+    
+}
+
+}
+@media(max-width:1127px){
+    .container{
+        width: 50%;
+    }
+}
+@media(max-width:980px){
+    .container{
+        width: 90%;
+    }
+}
     .attribution { font-size: 11px; text-align: center; margin-top: 10px; padding: 10px;;background-color: rgba(53, 30, 83, 0.89); }
     .attribution a { color: hsl(228, 45%, 44%);padding: 10px; }
   </style>
